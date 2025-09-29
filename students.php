@@ -126,14 +126,14 @@ foreach ($_SESSION['users'] as $student) {
               <tbody>
                 <?php if (empty($_SESSION['users'])): ?>
                   <tr>
-                    <td class="text-center" colspan="14">No Students Available!</td>
+                    <td class="text-left" colspan="14">No Data!</td>
                   </tr>
                 <?php else: ?>
                   <?php foreach ($_SESSION['users'] as $key => $user): ?>
                     <tr>
                       <th scope="row"><?= $key + 1 ?></th>
                       <td><?= htmlspecialchars($user['studentno'] ?? '') ?></td>
-                      <td><?= htmlspecialchars($user['lastname'] . ', ' . $user['firstname'] . ' ' . $user['middlename']) ?></td>
+                      <td><?= htmlspecialchars($user['firstname'] . $user['middlename'] . ' ' . $user['lastname']) ?></td>
                       <td>
                         <?php if (($user['attendance_status'] ?? '') === 'present'): ?>
                           <span class="badge bg-success">Present</span>
